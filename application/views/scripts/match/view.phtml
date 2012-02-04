@@ -1,0 +1,16 @@
+<h1 class="gradient" style="text-align: center;"><?php echo $this->title; ?></h1>
+<?
+$gallery = $this->match->getGallery();
+$files = array();
+if (!empty($gallery)) {
+    $files = $gallery->getGalleryFiles();
+}
+?>
+<div style="width: 100%">
+    <? echo $this->match->description; ?>
+</div>
+<p>
+    <? foreach ($files as $file) { ?>
+        <a rel="example_group" href="<?= $file->url; ?>" title=""><img  width="230px" height="auto" alt="" src="<?= $file->url; ?>" /></a>
+    <? } ?>
+</p>

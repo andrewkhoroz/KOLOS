@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+    <nav>
+        <home>
+            <label>Home</label>
+            <uri>/</uri>
+
+            <pages>
+                <about>
+                    <label>About</label>
+                    <uri>/index/about</uri>
+                </about>
+                <contact>
+                    <label>Contact</label>
+                    <uri>/index/contact</uri>
+                </contact>
+
+            </pages>
+        </home>
+        <competition>
+            <label>Competitions</label>
+            <uri>/competition</uri>
+            <pages>
+                <view>
+                    <label>View</label>
+                    <uri>/competition/view/id/28</uri>
+                </view>
+
+            </pages>
+        </competition>
+
+    </nav>
+</configdata>
+

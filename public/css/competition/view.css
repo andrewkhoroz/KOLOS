@@ -1,0 +1,26 @@
+.competitions-action-view .navigator{
+    margin-top: 55px;
+}
+.competitions-action-view .competition-description{
+    padding: 10px;
+    /*    float: left;*/
+    /*    width:60%;*/
+}
+.competitions-action-view .tour-view{
+/*    margin-bottom: 215px;*/
+}
+.competitions-action-view .tour-view .tour-view-wrapper{
+    border: 1px solid #d1d2d3;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow:0 5px 16px -2px green;
+    -moz-box-shadow:0 5px 16px -2px green;
+    -webkit-box-shadow:0 5px 16px -2px green;
+    width: 29%;
+    min-height:200px;
+    margin-left: 23px;
+}
+.competitions-action-view .tour-view .tour-view-wrapper:first-child{
+/*    margin-left: 0;*/
+}

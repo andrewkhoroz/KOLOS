@@ -1,0 +1,10 @@
+<h1 class="gradient">Перелік всіх змагань та команд, які беруть в них участь</h1>
+<?php foreach ($this->competitionsClubs as $competition): ?>
+	<h2><?= $competition['name'];?></h2>
+	<ul>
+	<?php foreach ($competition['clubs'] as $club):?>
+		<li><?= $club; ?></li>
+	<?php endforeach;?>
+	</ul>
+
+<?php endforeach;?>

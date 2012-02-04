@@ -1,0 +1,9 @@
+<?
+$competitionModel = new Model_Competitions();
+$competition = $competitionModel->find($this->competition->id)->current();
+//Zend_Debug::fdump($this->competition->id,'$this->competition->id');
+$this->competition=$competition;
+?>
+<h2>Заявити команди на змагання <span class="strong"><?= $competition->getFullName(); ?></span></h2>
+<?= $this->form; ?>
+<a onclick='toolbar.addEdit(<?= json_encode(array('id' => 0)); ?>,"club",clubObject.init); return false;' href="javascript:void(0);" class="competition-add right">Додати новий клуб</a>

@@ -1,0 +1,46 @@
+<?php
+$params = Zend_Controller_Front::getInstance()->getRequest()->getParams();
+$prev = '&lt;';
+$next = '&gt;';
+$nextActive = '<img height="16" width="9" style="cursor: pointer;" title="Вперед" alt="Вперед" src="/img/next.png"/>';
+$prevActive = '<img height="16" width="9" style="cursor: pointer;" title="Назад" alt="Назад" src="/img/prev.png">';
+//remove the system parametrs
+if ($this->pageCount) {
+    $selector = '\'.' . $params['controller'] . '-action-' . $params['action'] . '\'';
+    ?>
+    <div class="paginationControl">
+        <!--    Previous oage link-->
+        <?php if (isset($this->previous)) { ?>
+            <a href="javascript:void(0);" onclick="return false;" controller-name="<?= $params['controller'] ?>" action-name="<?= $params['action'] ?>"  page-number="<?= $this->previous ?>">
+                <?= $prevActive; ?>
+            </a>        <div class="page-numbers"> |
+            <? } else { ?>
+                <div class="page-numbers">
+                    <span class="disabled" page-number="<?= $page ?>"><?= $prev; ?></span> |
+                <? } ?>
+
+                <!--Numbered page links-->
+                <? foreach ($this->pagesInRange as $page) {
+                    if ($page != $this->current) { ?>
+                        <a href="javascript:void(0);" onclick="return false;" page-number="<?= $page; ?>" controller-name="<?= $params['controller'] ?>" action-name="<?= $params['action'] ?>"><?= $page ?></a> |
+                    <? } else { ?>
+                        <span class="strong selected-page" page-number="<?= $page; ?>"><?= $page; ?></span> |
+                    <? }
+                } ?>
+                <!--Next page link-->
+                <? if (isset($this->next)) { ?>
+                </div>
+                <a href="javascript:void(0);" page-number="<?= $this->next ?>" controller-name="<?= $params['controller'] ?>" action-name="<?= $params['action'] ?>" onclick="return false;"><?= $nextActive ?></a>
+            <? } else { ?>
+
+                <span class="disabled" page-number="<?= $page ?>"><?= $next; ?></span>
+            </div>
+        <? } ?>
+    </div>
+    <?php
+}
+
+unset($params['module']);
+unset($params['controller']);
+unset($params['action']);
+?>

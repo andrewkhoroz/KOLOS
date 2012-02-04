@@ -1,0 +1,73 @@
+<?php
+echo $this->doctype();
+$this->layout()->advert = $this->action('advert', 'index');
+$this->layout()->resultsTable = $this->action('tournir-table-mini', 'competition');
+$this->layout()->toursViewer = $this->action('tours-viewer', 'competition');
+
+$this->layout()->competitionClubsList = $this->action('list', 'competition');
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <?php echo $this->jQuery(); ?>
+        <?php echo $this->headScript(); ?>
+        <?php echo $this->headLink(); ?>
+        <?php echo $this->HeadMeta(); ?>
+        <?php echo $this->headTitle(); ?>
+
+        <link rel="shortcut icon" href="<?= $this->baseUrl() . '/img/ball.ico'; ?>"/>
+        <link rel="icon" type="image/gif" href="<?= $this->baseUrl() . '/img/ball.gif'; ?>"/>
+    </head>
+    <body>
+        <div id="c-all">
+            <div id="c-wrapper">
+                <?php echo $this->render('_header.phtml'); ?>
+                <?php echo $this->layout()->menu; ?>
+                <div id="c-main" class="page-width">
+                    <div id="c-central" class="column left">
+                        <div class="top-banner off">
+                            <a href="/">
+                                <img height="80" border="0" width="100%" alt="Фотогалерея" src="/img/43.jpg"/>
+                            </a>
+                        </div>
+                        <?php echo $this->layout()->content; ?>
+                        <br class="clear"/>
+                    </div>
+
+                    <div id="c-right" class="column right">
+                        <div id="user-profile">
+                            <?php echo $this->layout()->userProfile; ?>
+                        </div>
+                        <div id="results-table" >
+                            <?php echo $this->layout()->competitionClubsList; ?>
+                            <?php echo $this->layout()->resultsTable; ?>
+
+                        </div>
+<!--                        <br class="clear"/>
+                        <div>-->
+                            <?php echo $this->layout()->toursViewer; ?>
+<!--                        </div>-->
+                        <!--                        <div id="login-form" class="off">
+                        <?php echo $this->layout()->loginForm; ?>
+                                                </div>-->
+                        <br class="clear"/>
+                        <div>
+                            <?php echo $this->layout()->advert; ?>
+                        </div>
+
+                    </div>
+                    <br class="clear"/>
+                </div>
+                <?php echo $this->render('_footer.phtml'); ?>
+                <?php
+                $this->addScriptPath(APPLICATION_PATH . '/views/scripts');
+                echo $this->render('util/profiler.phtml');
+                ?>
+                <br class="clear"/>
+            </div>
+        </div>
+        <div class="jquery-dom">
+
+        </div>
+    </body>
+</html>
+

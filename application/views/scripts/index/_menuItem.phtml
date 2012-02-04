@@ -1,0 +1,11 @@
+<li class="level-1">
+    <a class="level-1" href="<?php echo $this->url ?>"><?php echo $this->escape($this->title); ?></a>
+    <ul class="sub-1">
+        <? foreach ($this->inner_links as $link) { ?>
+            <li class="">
+                <a href="<?php echo $link['url'] ?>"><?php echo $this->escape($link['title']); ?></a>
+            </li>
+            <br class="clear"/>
+<? } ?>
+    </ul>
+</li>

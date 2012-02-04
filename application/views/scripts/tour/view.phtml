@@ -1,0 +1,19 @@
+<?
+$tourMatches = $this->tour->findAllMatches();
+//if (count($tourMatches) > 0) {
+    ?>
+    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr class="gradient">
+            <td  colspan="3" style="text-align: center;"><?= $this->tour->fullName(); ?></td>
+        </tr>
+        <? foreach ($tourMatches as $match) {
+            ?>
+            <tr>
+                <td  style="text-align: right;"><? echo $match->getOwnerClub()->name; ?></td>
+                <td  style="text-align: center;"><? echo $match->getMatchScore(); ?></td>
+                <td  style="text-align: left;"><? echo $match->getGuestClub()->name; ?></td>
+<!--                <td  style="text-align: left;"><? echo $match->match_status_id; ?></td>-->
+            </tr>
+        <? //}
+    } ?>
+</table>

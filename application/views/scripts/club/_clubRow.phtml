@@ -1,0 +1,11 @@
+<tr club-id="<?=$this->id;?>" style="max-height: 100px; overflow-y:scroll;">
+    <td height="35">
+        <a href="javascript:void(0);"onclick='toolbar.addEdit(<?= json_encode(array('id' => $this->id)); ?>,"club",clubObject.init);return false;'>Edit</a>
+        <a href="javascript:void(0);"onclick="toolbar.remove(<?=$this->id;?>,'club'); return false;">Delete</a>
+        <a href="javascript:void(0);"onclick="clubObject.associate(<?=$this->id;?>); return false;">Associate</a>
+    </td>
+    <td><?= $this->id;?> </td>
+    <td><span class="strong bigger"><?= $this->name;?></span></td>
+    <td><?= $this->location;?></td>
+    <td><?= $this->description;?></td>
+</tr>

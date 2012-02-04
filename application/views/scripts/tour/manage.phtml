@@ -1,0 +1,17 @@
+<div class="tours-action-manage" comp-id="<?= $this->competition->id ?>">
+    <h1 class="gradient"><?php echo $this->escape($this->title); ?><a class="smaller white" href="<?= $this->baseUrl(); ?>/competition/view/id/<?= $this->competition->id; ?>">Детальніше</a></h1>
+    <div class="table-controls">
+        <a class="tour-add right" href="javascript:void(0);" onclick='toolbar.addEdit(<?= json_encode(array('comp_id' => $this->competition->id, 'id' => 0)); ?>,"tour",tourObject.init); return false;'>Додати новий тур AJAX</a>
+        <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+    </div>
+    <div class="table-wrapper">
+        <table class="tours-list">
+            <?= $this->partialLoop("tour/_tourRow.phtml", $this->paginator); ?>
+        </table>
+    </div>
+    <div class="table-controls">
+        <a class="tour-add right" href="javascript:void(0);" onclick='toolbar.addEdit(<?= json_encode(array('comp_id' => $this->competition->id, 'id' => 0)); ?>,"tour",tourObject.init); return false;'>Додати новий тур AJAX</a>
+        <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+    </div>
+    <br/>
+</div>

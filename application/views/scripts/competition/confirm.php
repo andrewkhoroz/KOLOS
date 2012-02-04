@@ -1,0 +1,1 @@
+<h2>You added a new competition</h2>

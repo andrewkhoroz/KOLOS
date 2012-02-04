@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+.inline{
+    display: inline;
+}
+.clear{
+    clear:both;
+}
+html{
+    overflow-y: scroll;
+}
+
+body{
+    font: 75%/1.5 Verdana, Tahoma, sans-serif;
+    color: black;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #EAEEF0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: Arial, Verdana, Tahoma, sans-serif;
+}
+
+h1{
+    font-size: 1.9em; /* Equivalent to 23pt */
+}
+.gradient{
+    color:  black;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='greenyellow', endColorstr='green'); /* for IE */
+    background: -webkit-gradient(linear, left center, right center, from(greenyellow), to(green)); /* for webkit browsers */
+    background: -moz-linear-gradient(center left , greenyellow, green) repeat scroll 0 0 transparent;
+    margin: 0px 0 10px;
+    padding-left: 5px;
+}
+
+h2{
+    font-size: 1.7em; /* Equivalent to 20pt */
+    padding: 20px 0 10px
+}
+
+h3{
+    font-size: 1.5em; /* Equivalent to 18pt */
+    /*    color:  #5CA605;*/
+}
+
+h4{
+    font-size: 1.3em; /* Equivalent to 14pt */
+}
+
+h5{
+    font-size: 1em; /* Equivalent to 12pt */
+}
+
+h6{
+    font-size: 0.9em; /* Equivalent to 11pt */
+}
+/*li, dd, dt{
+    font-size: 1.2em; /* Equivalent to 12pt 
+    margin-left:2em;
+}*/
+
+img, iframe {
+    border:none;
+}
+p{
+    /*    text-indent:20px;*/
+}
+
+/* Forms
+-----------------------------------------------------------------------------*/
+
+input, textarea, select, button{
+    border: 1px solid #d2d2d2;
+    padding: 0.3em 0.2em;
+    margin: 0.3em 0;
+    font-size: inherit;
+    font-family: inherit;
+    color: #706f70;
+}
+input[type="text"], input[type="password"], textarea{
+    /*    background: none repeat scroll 0 0 #E4F6E1;*/
+    border: 1px solid #D6D1C7;
+    border-radius: 4px 4px 4px 4px;
+    padding: 5px 7px;
+}
+input:hover, textarea:hover, select:hover, button:hover,
+input:focus, textarea:focus, select:focus, button:focus{
+    border: 1px solid #0090c6;
+}
+.button{
+    width: 60px;
+    height: 25px;
+    color: #373636;
+    border: 1px solid #dedede;
+    padding: 0;
+    font-weight: bolder;
+}
+table{
+    border-spacing: 2px;
+    /*    border-collapse: collapse;*/
+}
+
+td{
+    text-align: left;
+    font-weight: normal;
+}
+
+
+dt{
+    float: left;
+}
+dd {
+    margin-left: 150px;
+}
+dt label{
+    font-weight: bold;
+    font-size: 12px;
+}
+dt label.required:after{
+    content: " *";
+    color: red;
+}
+ul.errors{
+    padding: 5px 0 5px 15px;
+}
+
+/* Links
+-----------------------------------------------------------------------------*/
+a:link{
+    color: #1d97bc;
+    text-decoration: none;
+}
+a:active{
+
+}
+a:visited {
+    text-decoration: none;
+    color: #1d97bc;
+}
+a:hover{
+    text-decoration: underline;
+}
+/*Colors
+-----------------------------------------------------------------------------*/
+.red{
+    color: #f73b09 !important;
+}
+.pink{
+    color: #944a7c !important;
+}
+.blue{
+    color: #0090c6 !important;
+}
+.green{
+    color: #518c19 !important;
+}
+.yellow{
+    color: #ff7800 !important;
+}
+.black{
+    color: #000000 !important;
+}
+.white{
+    color: #fff !important;
+}
+.off{
+    display: none;
+}
+
+.strong {
+    font-weight: bold !important;
+}
+.smaller{
+    font-size: 0.9em !important;
+}
+.bigger{
+    font-size: 1.2em !important;
+}
+.margin-big{
+    margin-left: 200px;
+}
+.inline{
+    display: inline;
+}
+.inline-block{
+    display: inline-block;
+}
+.page-width{
+    margin: 0 auto;
+    width: 1000px;
+}
+#c-all{
+    background-color: ivory;
+}
+#c-all #c-wrapper #header .dash-board1{
+    font-size: 12px;
+    line-height: 30px;
+    background: url("/img/body_bg4.png") repeat-x scroll left top transparent;
+    box-shadow: 0 15px 15px white;
+    height: 30px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 15;
+}
+#c-all #c-wrapper #header .dash-board1 .submenu{
+    background: none repeat scroll 0 0 #C8E3FF;
+    border-top: 1px solid #FFFFFF;
+    padding-bottom: 3px;
+    position: absolute;
+    top: 100%;
+    /*    width: 100%;*/
+    z-index: 1;
+}
+.submenu a{
+    margin: 4px;
+    outline: medium none;
+}
+.instruments{
+
+}
+.instruments-wrapper{
+    display: inline-block;
+    margin-right: 50px;
+}
+#c-all #c-wrapper #header .dash-board1 .identity-wrapper{
+    padding: 0 10px;
+}
+#c-all #c-wrapper #header .dash-board2{
+    height: 90px;
+    background: url("/img/sprite.png") repeat-x scroll 0 0 transparent;
+}
+
+#c-all #c-wrapper #c-main{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D6D6D6;
+    padding: 15px;
+    min-height: 1000px;
+}
+#c-all #c-wrapper #c-main #c-central{
+    overflow-x: hidden;
+    margin-bottom: 10px;
+    padding: 0;
+    text-align: justify;
+    width: 70%
+
+}
+#c-all #c-wrapper #c-main #c-right{
+    width: 28%;
+    margin: 10px 0;
+    padding: 0 5px;
+    border-left: 1px dotted black;
+}
+
+#c-all #c-wrapper #footer{
+    clear: both;
+    font-size: 0.75em;
+    text-align: right;
+    height: 40px;
+    line-height: 40px;
+}
+
+.image-border{
+    border: 2px solid green;
+    border-radius: 10px 10px 10px 10px;
+    margin: 5px;
+}
+img{
+    margin: 5px;
+}
+
+.club-icon{
+    height: 50px;
+    margin: 8px;
+    width: 50px;
+    background-repeat:no-repeat;
+    background-image:url("/img/clubs/clubs.png");
+    background-attachment: scroll;
+    background-color: transparent;
+    display: inline-block;
+}
+.club-icon.karpaty{
+    background-position: 5px -15px;
+}
+.red-border{
+    border: red thick;
+}
+table.spreadsheet {
+    margin: 10px 0;
+    border: #999 1px solid;
+}
+
+table.spreadsheet th {
+    background: #ccc;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px 2px;
+}
+
+table.spreadsheet td {
+    border-top: #999 1px solid;
+    padding: 5px 2px;
+}
+/***********************************************/
+.warning-message,
+.message-warning{
+    border: 1px solid #f73b09;
+    background: #fcecec;
+    padding: 0.3em;
+}
+
+.ok-message,
+.message-ok{
+    border: 1px solid #449720;
+    background: #ddedd7;
+    padding: 0.5em;
+}

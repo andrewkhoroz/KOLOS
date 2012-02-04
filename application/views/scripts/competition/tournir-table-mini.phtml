@@ -1,0 +1,28 @@
+<?
+$clubPosition = 0;
+if (!empty($this->resultsTable)) {
+    ?>
+    <table width="100%" class="competition-results-table image-border" border="1">
+        <tr>
+            <th>М</th>
+            <th style="text-align: left;">Клуб</th>
+            <th>І</th>
+            <th>О</th>
+        </tr>
+        <?
+        foreach ($this->resultsTable as $clubResult) {
+            $clubPosition++;
+            ?>
+            <tr class="yellow-row-background">
+                <td><?= $clubPosition; ?></td>
+                <td style="text-align: left;"><?= $clubResult['club_obj']->fullName() ?></td>
+                <td><?= (empty($clubResult['games_count']) ? 0 : ($clubResult['games_count'])); ?></td>
+                <td><?= (empty($clubResult['points_count']) ? 0 : ($clubResult['points_count'])); ?></td>
+            </tr>
+        <? } ?>
+    </table>
+    <a class="right detal-link" href="<?= $this->url(array('controller' => 'competition', 'action' => 'view', 'id' => $this->competition->id), 'default', true); ?>" ><span class="smaller">Детальніше</span></a>
+<? } else { ?>
+<!--    <h2>Table is empty</h2>-->
+<? } ?>
+<br class="clear"/>

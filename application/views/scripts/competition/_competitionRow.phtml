@@ -1,0 +1,18 @@
+<?
+//Zend_Debug::fdump($this,'$this');
+$competitionModel = new Model_Competitions();
+$competition = $competitionModel->find($this->id)->current();
+//Zend_Debug::fdump(json_encode(array('id'=>$this->id)));
+?>
+<tr competition-id="<?= $this->id; ?>">
+    <td >
+        <a href='javascript:void(0);' onclick='toolbar.addEdit(<?=json_encode(array('id'=>$this->id)); ?>,"competition",competitionObject.init);return false;'>Edit</a>
+        <a href="javascript:void(0);"onclick="toolbar.remove(<?= $this->id; ?>,'competition'); return false;">Delete</a>
+        <a href="javascript:void(0);"onclick="competitionObject.associate(<?= $this->id; ?>); return false;">Associate</a>
+        <a href="<?= $this->baseUrl(); ?>/tour/manage/comp_id/<?= $this->id; ?>">Тури</a>
+    </td>
+    <td><?= $this->id; ?></td>
+    <td><a class="strong bigger" target="_blank" href="<?= $this->baseUrl(); ?>/competition/view/id/<?= $this->id; ?>"><?= $this->name; ?></a></td>
+    <td><?= $competition->getPeriod(); ?></td>
+    <td><?= $this->description; ?></td>
+</tr>

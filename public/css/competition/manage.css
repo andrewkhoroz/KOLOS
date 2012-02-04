@@ -1,0 +1,23 @@
+.table-wrapper{
+    /*    height: 420px;*/
+}
+.competition-associate-dialog-content dl {
+    height: 275px;
+    overflow-y: scroll;
+    padding: 10px;
+    border: 2px solid gray;
+}
+.competition-associate-dialog-content dd{
+    text-align: right;
+    border-bottom: black dashed thin;
+    margin: 0;
+    padding:  5px 0;
+}
+.competition-associate-dialog-content dd:hover{
+    background: yellow;   
+}
+.competition-associate-dialog-content{
+
+}
+
+

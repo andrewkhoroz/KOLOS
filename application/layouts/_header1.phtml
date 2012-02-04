@@ -1,0 +1,53 @@
+<div id="header">
+    <div class="left site-logo">
+        <a href="/" class="left">
+            <img width="90px" height="83px"  src="/img/ball2012.png"/>
+        </a>
+        <!--        <a href="/" class="left">
+                    <img height="80" border="0" width="100%" alt="Фотогалерея" src="/img/43.jpg"/>
+                </a>-->
+    </div>
+    <div class="left" style="padding: 20px 0 0 20px;">
+        <?
+//        var_dump(date_sun_info(time(),38.4, -9));
+        $riseTime = date_sunrise(time(), SUNFUNCS_RET_STRING, 38.4, -9, 90, 1);
+        $setTime = date_sunset(time(), SUNFUNCS_RET_STRING, 38.4, -9, 90, 1);
+        $duration = strtotime($setTime) - strtotime($riseTime);
+        ?>
+        <table class="off" width="160px">
+            <tr>
+                <td>Схід сонця :</td>
+                <td><span><?= $riseTime; ?></span></td>
+            </tr>
+            <tr>
+                <td>Захід сонця :</td>
+                <td><span><?= $setTime; ?></span></td>
+            </tr>
+            <tr>
+                <td>Тривалість дня : </td>
+                <td><span><?= ($duration / 3600) ?></span></td>
+            </tr>
+        </table>
+
+
+    </div>
+    <div class="user-tools right">
+        <?
+        $userProfile = $this->action('index', 'user');
+        echo '<span class="right">' . $userProfile . '</span>';
+        ?>
+        <div class="usermenu list clear">
+            <a class="ct opened right pink" href="#">Instruments<span class="arrow"></span></a>
+            <br>
+            <div class="submenu off">
+                <a class=" " href="javascript:cTools.fn.addClub()">Додати команду</a>
+                <br/>
+                <a class=" " href="javascript:cTools.fn.addCompetition()">Додати змагання</a>
+                <br/>
+                <a class=" " href="/chapter/website/">Update Website</a>
+                <br/>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<? if (!empty($this->resultsTable)) { ?>
+    <table width="99%" class="competition-results-table image-border" border="1"  cellpadding="5px" cellspacing="5px">
+        <tr>
+            <th>М</th>
+            <th style="text-align: left;">Клуб</th>
+            <th>І</th>
+            <th>В</th>
+            <th>Н</th>
+            <th>П</th>
+            <th>ЗМ</th>
+            <th>ПМ</th>
+            <th>Р</th>
+            <th>О</th>
+        </tr>
+        <?
+//        Zend_Debug::fdump($this->competition_obj,'obj2');
+        foreach ($this->resultsTable as $clubResult) {
+            $clubPosition++;
+            $diff = ($clubResult['balls_balance_plus'] - $clubResult['balls_balance_minus']);
+            if ($diff > 0) {
+                $diff = '+' . $diff;
+            }
+            ?>
+            <tr class="yellow-row-background">
+                <td><?= $clubPosition; ?></td>
+                <td style="text-align: left;"><?= $clubResult['club_obj']->fullName() ?></td>
+                <td><?= (empty($clubResult['games_count']) ? 0 : ($clubResult['games_count'])); ?></td>
+                <td><?= (empty($clubResult['wins_count']) ? 0 : ($clubResult['wins_count'])); ?></td>
+                <td><?= (empty($clubResult['nich_count']) ? 0 : ($clubResult['nich_count'])); ?></td>
+                <td><?= (empty($clubResult['def_count']) ? 0 : ($clubResult['def_count'])); ?></td>
+                <td><?= $clubResult['balls_balance_plus']; ?></td>
+                <td><?= $clubResult['balls_balance_minus']; ?></td>
+                <td><?= $diff; ?></td>
+                <td><?= (empty($clubResult['points_count']) ? 0 : ($clubResult['points_count'])); ?></td>
+            </tr>
+        <? } ?>
+    </table>
+<? } else { ?>
+    <!--    <h2>Table is empty</h2>-->
+<? } ?>

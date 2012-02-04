@@ -1,0 +1,13 @@
+select.owner-select{
+    float: left;
+}
+
+select.guest-select{
+    float: left;
+}
+.owner-score{
+    float: left;
+}
+.tour-select{
+    clear: both;
+}

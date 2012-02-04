@@ -1,0 +1,14 @@
+
+<h2>Zend_Config_Ini and using Zend_Http_Client with Twitter</h2>
+<span>----------------------------------------------------</span>
+<br/>
+<h1 class="gradient">Grabbing live data from Twitter</h1>
+
+<?php
+foreach ($this->twitterResults as $t) {
+    echo "<div style='border: 2px solid #CCC'>
+<img src='" . $t['profile_image_url'] . "' />
+" . $t['text'] . "
+</div>";
+}
+//echo  $this->output;

@@ -1,0 +1,34 @@
+<?
+$tour = new Model_Tours();
+$tour = $tour->find($this->id)->current();
+$tourMatches = $tour->findAllMatches();
+?>
+<tr tour-id="<?= $this->id; ?>">
+    <td>
+        <h2 class="inline"><?= $tour->fullName(); ?></h2>
+        <a class="match-add" href="javascript:void(0);" onclick='toolbar.addEdit(<?=json_encode(array('comp_id'=> $tour->competition_id ,'tour_id'=> $tour->id ,'id'=> 0,'changed_object_name'=>'tour'));?>,"match",matchObject.init); return false;'>Додати матч</a>
+        <table>
+            <tr>
+                <th style="width: 15%">Manage</th>
+                <th style="width: 5%;">ID</th>
+                <th style="width: 25%;">Дата проведення</th>
+                <th>Загловок</th>
+            </tr>
+            <? foreach ($tourMatches as $match) {
+                ?>
+                <tr match-id="<?= $match->id; ?>">
+                    <td >
+                        <a href="javascript:void(0);" onclick='toolbar.addEdit(<?=json_encode(array('comp_id'=> $tour->competition_id ,'tour_id'=> $tour->id ,'id'=> $match->id,'changed_object_name'=>'tour'));?>,"match",matchObject.init); return false;'>Edit</a>
+                        <a href="javascript:void(0);"onclick="matchObject.remove(<?= $tour->competition_id ?>,<?= $tour->id ?>,<?= $match->id; ?>); return false;">Delete</a>
+                    </td>
+                    <td><?= $match->id; ?></td>
+                    <td><?= date("d/m/Y h:s", strtotime($match->date)); ?></td>
+                    <td><?= $match->getMatchTitle(); ?></td>
+                </tr>
+            <? } ?>
+
+        </table>
+    </td>
+
+
+</tr>

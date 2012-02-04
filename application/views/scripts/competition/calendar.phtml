@@ -1,0 +1,9 @@
+<h1 class="gradient"><?php echo $this->escape($this->title); ?></h1>
+<h2 style="text-align: center;">Календар</h2>
+<div class="tour-view">
+    <?
+    foreach ($this->competition->getAllToursOfCompetition() as $tour) {
+        echo '<div class="left" style="min-height:200px; margin:0px; width:33%">' . $this->action('view', 'tour', null, array('tour_id' => $tour['id'])) . '</div>';
+    }
+    ?>
+</div>

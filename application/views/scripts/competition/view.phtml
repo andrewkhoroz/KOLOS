@@ -1,0 +1,83 @@
+<h1 class="gradient"><?php echo $this->escape($this->title); ?></h1>
+<a class="right" href="<?= $this->url(array('controller' => 'competition', 'action' => 'calendar', 'id' => $this->competition->id), 'default', true); ?>">Календар</a>
+<div class="competitions-action-view">
+    <?
+    $gallery = $this->competition->getGallery();
+    $files = array();
+    if (!empty($gallery)) {
+        $files = $gallery->getGalleryFiles();
+    }
+    ?>
+    <div class="competition-description">
+        <p class="bigger">
+            <? echo $this->competition->description; ?>
+        </p>
+    </div>
+    <div class="tour-view">
+        <?
+        foreach ($this->competition->getNearestTours() as $tour) {
+            echo '<div class="tour-view-wrapper left">' . $this->action('view', 'tour', null, array('tour_id' => $tour['id'])) . '</div>';
+        }
+        ?>
+    </div>
+    <br class="clear">
+    <?
+    $doubleCompetition = $this->competition->getRelatedCompetition();
+    ?>
+    <h2>Турнірна таблиця</h2>
+    <div id="tournir-table-tabs" class="kolos-tabs">
+        <ul>
+            <li><a href="#main-tab">Основа</a></li>
+            <? if (!empty($doubleCompetition)) { ?>
+                <li><a href="#related-tab">Дубль</a></li>
+            <? } ?>
+        </ul>
+        <div id="main-tab" class="">
+            <div  style="margin: 5px 0;" class="tournir-table">
+                <? echo $this->action('tournir-table-detal', 'competition', null, array('competition_id' => $this->competition->id)); ?>  
+            </div>
+        </div>
+        <? if (!empty($doubleCompetition)) { ?>
+            <div id="related-tab" class="">
+                <div  style="margin: 5px 0;" class="tournir-table">
+                    <? echo $this->action('tournir-table-detal', 'competition', null, array('competition_id' => $doubleCompetition->id)); ?>  
+                </div>
+            </div>
+        <? } ?>
+    </div>
+
+    <?
+    $filesCount = count($files);
+    if ($files > 0) {
+        echo "<script type='text/javascript'>
+             GALLERY['competitionPhotoList']=new ImageGallery('competitionPhotoList',$filesCount,3);
+        </script>";
+        ?>
+        <div class="gallery" style="width: 100%">
+            <div style="margin-right:-5px;" class="navigator">
+                <div class="arrow-left">
+                    <img height="16" width="9" onclick="GALLERY['competitionPhotoList'].moveBack();" style="cursor: pointer;" title="Назад" alt="Назад" src="/img/prev.png">
+                </div>
+            </div>
+            <?
+            $clubCounter = 0;
+            $display = '';
+            foreach ($files as $file) {
+                $fileCounter++;
+                if ($fileCounter > 3) {
+                    $display = 'off';
+                }
+                ?>
+                <div id="competitionPhotoList_<?= $fileCounter ?>" class="left <?= $display; ?>">
+                    <img width="225" height="100%" id="first" src="<?= $this->baseUrl() . $file->url; ?>"/>
+                </div>
+            <? } ?>
+            <div style="margin-left:-5px;" class="navigator">
+
+                <div class="arrow-right">
+                    <img height="16" width="9" onclick="GALLERY['competitionPhotoList'].moveForward();" style="cursor: pointer;" title="Вперед" alt="Вперед" src="/img/next.png"/>
+                </div>
+            </div>
+        </div>
+    <? } ?>
+</div>

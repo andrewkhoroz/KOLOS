@@ -1,0 +1,39 @@
+<? if ($this->isPost != true) { ?>
+    <div class="gradient page-title">
+        <h1 class="inline"><?php echo $this->escape($this->title); ?></h1>
+        <input name="name" class="right search-club search-param" type="text"/>
+        <? if (!empty($this->competitions)) {
+            ?>
+
+            <select name="competition_id" class="competition-selector right search-club search-param">
+                <option value="" >--Виберіть змагання--</option>
+                <?php
+                foreach ($this->competitions as $competition) {
+                    if ($competition->id == $competitionId) {
+                        $selected = 'selected="selected"';
+                    } else {
+                        $selected = '';
+                    }
+                    ?>
+                    <option value="<?= $competition->id; ?>" <?= $selected ?> ><?= $competition->name; ?></option>
+                <? } ?>
+            </select>
+        <? } ?>
+    </div>
+<? } ?>
+<div class="clubs-action-index">
+    <? if ($this->clubsCount > 0) { ?>
+        <div class="table-controls">
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+        </div>
+        <div class="clubs-wrapper">
+            <?= $this->partialLoop("club/_clubViewRow.phtml", $this->paginator); ?>
+        </div>
+        <div class="table-controls">
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+        </div>
+    <? } else { ?>
+        <p>Not found</p>
+    <? } ?>
+    <br/>
+</div>

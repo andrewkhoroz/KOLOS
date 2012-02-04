@@ -1,0 +1,33 @@
+<? if ($this->isPost != true) { ?>
+    <div class="gradient page-title">
+        <h1 class="inline"><?php echo $this->escape($this->title); ?></h1>
+        <input name="name" class="right search-club search-param" type="text"/>
+    </div>
+<? } ?>
+<div class="clubs-action-manage">
+    <? if ($this->clubsCount > 0) { ?>
+        <div class="table-controls">
+            <a class="competition-add right" href="javascript:void(0);" onclick='toolbar.addEdit(<?= json_encode(array('id' => 0)); ?>,"club",clubObject.init); return false;'>Додати новий клуб AJAX</a>
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+        </div>
+        <div class="table-wrapper">
+            <table class="clubs-list"  border="1">
+                <tr>
+                    <th style="width: 15%">Manage</th>
+                    <th style="width: 5%;">ID</th>
+                    <th style="width: 10%;">Name</th>
+                    <th style="width: 5%;">Location</th>
+                    <th>Description</th>
+                </tr>
+                <?= $this->partialLoop("club/_clubRow.phtml", $this->paginator); ?>
+            </table>
+        </div>
+        <div class="table-controls">
+            <a class="club-add right" href="javascript:void(0);" onclick='toolbar.addEdit(<?= json_encode(array('id' => 0)); ?>,"club",clubObject.init); return false;'>Додати нове клуб AJAX</a>
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+        </div>
+    <? } else{?>
+    <p>Not found</p>
+    <?}?>
+    <br/>
+</div>

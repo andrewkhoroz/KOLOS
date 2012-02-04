@@ -1,0 +1,98 @@
+.competitions-list, .clubs-list, .tours-list{
+    width: 100%;
+    /*    border: 1px solid;*/
+}
+.competitions-list th, .clubs-list th, .tours-list th{
+    background: yellowgreen;
+}
+.competitions-list td, th, .clubs-list td, th, .tours-list td, th {
+    padding: 10px;
+    text-align: left;
+}
+.competition-view, .club-view{
+    border: 2px solid #CCCCCC;
+    border-radius: 10px 10px 10px 10px;
+    margin: 5px;
+    padding: 5px;
+    height:110px;
+    overflow-y:hidden;
+}
+
+.error-description {
+    font-size: 1.5em;
+}
+.competition-results-table td{
+    text-align: left;
+    padding: 2px 10px;
+}
+.gallery{
+    width: auto;
+    display: inline-block;
+}
+.gallery .navigator{
+    float: left;
+    height: 100%;
+    vertical-align: middle;
+}
+.gallery .gallery-element{
+    float: left;
+    margin: 0 5px;
+    text-align: center;
+    width: 60px;
+}
+table tr.odd-row td{
+    background-color: #E4E4E4;
+    font-size: 11px;
+    padding: 2px;
+}
+table tr.even-row td{
+    background-color: #F3F3F3;
+}
+table tr.th-row th{
+    padding: 5px;
+    background-color: #AAAAAA;
+}
+.paginationControl{
+    height: 20px;
+}
+.paginationControl .page-numbers{
+    display: inline-block;
+    margin-top: -2px;
+    vertical-align: top;
+}
+.paginationControl img{
+    border:none;
+    margin: 0;
+    border-radius: 10px 10px 10px 10px;
+}
+.top-banner img{
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    margin: 0;
+}
+.site-logo{
+    margin: -5px 0 0 -15px;
+}
+.site-logo img{
+    border: 2px solid green;
+    border-radius: 30px 10px 10px 0;
+    margin: 0;
+}
+.page-title input[type=text]{
+    margin: 3px;
+}
+.yellow-row-background:hover{
+    background: url("/img/tableLine.gif") repeat-x scroll left top #D7C106;
+    cursor: pointer;
+}
+.detal-link{
+    margin: -5px;
+}
+.kolos-tabs.ui-tabs .ui-tabs-nav li a{
+    color: #62747e;
+    font-weight: normal;
+    font-size: 1em;
+}
+.kolos-tabs.ui-tabs .ui-tabs-nav li.ui-state-active a{
+    color: #0090C6;
+}

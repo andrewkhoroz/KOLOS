@@ -1,0 +1,33 @@
+<? if ($this->isPost != true) { ?>
+    <div class="gradient page-title">
+        <h1 class="inline"><?php echo $this->escape($this->title); ?></h1>
+        <input name="name" class="right search-competition search-param" type="text"/>
+    </div>
+<? } ?>
+<div class="competitions-action-manage">
+    <? if ($this->competitionsCount > 0) { ?>
+        <div class="table-controls">
+            <a class="competition-add right" href='javascript:void(0);' onclick='toolbar.addEdit(<?= json_encode(array('id' => 0)); ?>,"competition",competitionObject.init);return false;'>Add new</a>
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+        </div>
+        <div class="table-wrapper">
+            <table class="competitions-list">
+                <tr>
+                    <th style="width: 15%">Manage</th>
+                    <th style="width: 5%;">ID</th>
+                    <th style="width: 10%;">Title</th>
+                    <th style="width: 5%;">Year</th>
+                    <th>Description</th>
+                </tr>
+                <?= $this->partialLoop("competition/_competitionRow.phtml", $this->paginator); ?>
+            </table>
+        </div>
+        <div class="table-controls">
+            <a class="competition-add right" href='javascript:void(0);' onclick='toolbar.addEdit(<?= json_encode(array('id' => 0)); ?>,"competition",competitionObject.init);return false;'>Add new</a>
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+        </div>
+    <? } else { ?>
+        <p>Not found</p>
+    <? } ?>
+    <br/>
+</div>

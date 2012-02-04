@@ -1,0 +1,9 @@
+<?
+$clubsModel = new Model_Clubs();
+$club = $clubsModel->find($this->id)->current()
+?>
+<div class="club-view yellow-row-background" club-id="<?= $this->id; ?>">
+    <a class="pink bigger strong" href="<?= $this->url(array('controller' => 'club', 'action' => 'view', 'id' => $this->id), 'default', true) ?>" ><?= $this->name; ?></a>
+    <img class="left" id="first" src="<?= $this->baseUrl() . $club->getLogoPath() ?>" alt="<?= $club->name; ?>" title="<?= $club->name; ?>"/>
+    <p><?= $this->description; ?></p>
+</div>

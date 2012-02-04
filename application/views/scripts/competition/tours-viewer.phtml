@@ -1,0 +1,21 @@
+<div class="competitions-action-tours-viewer">
+    <?
+//Zend_Debug::fdump($this->paginator, '$this->paginator');
+    if ($this->toursCount > 0) {
+        ?>    
+        <div class="table-controls">
+            <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
+        </div>
+        <? //= $this->partialLoop("competition/_tourView.phtml", $this->paginator); ?>
+        <?
+        $tour = $this->paginator->getItemsByPage($this->pageNumber);
+//    Zend_Debug::fdump($this->pageNumber, '$this->pageNumber');
+//    Zend_Debug::fdump($tour[0]->id, '$tour->id');
+//        echo '<div class="left" style="min-height:200px; margin:0px; width:33%">' . $this->action('view', 'tour', null, array('tour_id' => $tour[0]->id)) . '</div>';
+        echo  $this->partialLoop("competition/_tourView.phtml", $this->paginator); 
+        ?>
+    <? } else { ?>
+<!--        <p>Not found</p>-->
+    <? } ?>
+<!--    <br/>-->
+</div>

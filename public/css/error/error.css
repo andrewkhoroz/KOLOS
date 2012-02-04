@@ -1,0 +1,9 @@
+.error-description{
+    background: none repeat scroll 0 0 white;
+    font-size: 1em;
+    position: absolute;
+}
+.error-description img.bug-image{
+    margin: 10px 10px 10px 0;
+    float: left;
+}

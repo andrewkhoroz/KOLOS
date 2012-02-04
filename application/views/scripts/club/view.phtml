@@ -1,0 +1,54 @@
+<h1 class="gradient"><?php echo $this->title; ?></h1>
+<?
+$gallery = $this->club->getGallery();
+$files = array();
+if (!empty($gallery)) {
+    $files = $gallery->getGalleryFiles();
+}
+?>
+<div class="club-description">
+    <p class="bigger">
+        <? echo $this->club->description; ?>
+    </p>
+</div>
+<!--<p>
+
+    <? foreach ($files as $file) { ?>
+        <a rel="competition-view" href="<?= $file->url; ?>" title="" target="_blank"><img  width="230px" height="auto" alt="" src="<?= $file->url; ?>" /></a>
+    <? } ?>
+</p>-->
+<?
+$filesCount = count($files);
+if ($files > 0) {
+    echo "<script type='text/javascript'>
+             GALLERY['clubPhotoList']=new ImageGallery('clubPhotoList',$filesCount,3);
+        </script>";
+    ?>
+    <div class="gallery" style="width: 100%">
+        <div style="margin-right:-5px;" class="navigator">
+            <div class="arrow-left">
+                <img height="16" width="9" onclick="GALLERY['clubPhotoList'].moveBack();" style="cursor: pointer;" title="Назад" alt="Назад" src="/img/prev.png">
+            </div>
+        </div>
+        <?
+        $clubCounter = 0;
+        $display = '';
+        foreach ($files as $file) {
+            $fileCounter++;
+            if ($fileCounter > 3) {
+                $display = 'off';
+            }
+            ?>
+            <div id="clubPhotoList<?= $fileCounter ?>" class="left <?= $display; ?>" w>
+                <img width="225" height="auto" id="first" src="<?= $this->baseUrl() . $file->url; ?>"/>
+            </div>
+        <? } ?>
+        <div style="margin-left:-5px;" class="navigator">
+
+            <div class="arrow-right">
+                <img height="16" width="9" onclick="GALLERY['clubPhotoList'].moveForward();" style="cursor: pointer;" title="Вперед" alt="Вперед" src="/img/next.png"/>
+            </div>
+        </div>
+    </div>
+    <?
+}

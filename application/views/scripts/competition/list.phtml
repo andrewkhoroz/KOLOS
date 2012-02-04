@@ -1,0 +1,71 @@
+<?
+$competitionsModel = new Model_Competitions();
+$session = Model_Session::getSession();
+if (!empty($session->competiton_id)) {
+    $comp = $competitionsModel->find($session->competiton_id)->current();
+    $this->clubs = $comp->getAllClubsOfCompetition();
+}
+$clubsCount = count($this->clubs);
+
+$clubPosition = 0;
+$competitionId = $session->competiton_id;
+if (!empty($this->competitions)) {
+    ?>
+
+    <select class="competition-selector">
+        <option value="" >--Виберіть змагання--</option>
+        <?php
+        foreach ($this->competitions as $competition) {
+            if ($competition->id == $competitionId) {
+                $selected = 'selected="selected"';
+            } else {
+                $selected = '';
+            }
+            ?>
+            <option value="<?= $competition->id; ?>" <?= $selected ?> ><?= $competition->name; ?></option>
+        <? } ?>
+    </select>
+<? } ?>
+<div class="clubs-logos">
+    <?
+    if ($clubsCount > 0 && 1==0) {
+
+        echo "<script type='text/javascript'>
+             GALLERY['competitionClubsList']=new ImageGallery('competitionClubsList',$clubsCount);
+        </script>";
+        ?>
+        <div class="gallery">
+            <div style="margin-right:-5px;" class="navigator">
+                <div class="arrow-left">
+                    <img height="16" width="9" onclick="GALLERY['competitionClubsList'].moveBack();" style="cursor: pointer;" title="Назад" alt="Назад" src="/img/prev.png">
+                </div>
+            </div>
+            <?
+            $clubCounter = 0;
+            $display = '';
+            foreach ($this->clubs as $club) {
+                $clubCounter++;
+                if ($clubCounter > 5) {
+                    $display = 'off';
+                }
+                ?>
+                <div id="competitionClubsList_<?= $clubCounter ?>" class="gallery-element <?= $display; ?>">
+                    <img id="first" src="<?= $this->baseUrl() . $club->getLogoPath() ?>" alt="<?= $club->name; ?>" title="<?= $club->name; ?>"/>
+                </div>
+            <? } ?>
+            <!--        <div class="gallery-element">
+                        <a href="javascript:void(0)"><span class="club-icon karpaty"></span></a>
+                    </div>-->
+            <div style="margin-left:-5px;" class="navigator">
+
+                <div class="arrow-right">
+                    <img height="16" width="9" onclick="GALLERY['competitionClubsList'].moveForward();" style="cursor: pointer;" title="Вперед" alt="Вперед" src="/img/next.png"/>
+                </div>
+            </div>
+        </div>
+    <? } else { ?>
+        <!--        <div>
+                    <h3>Виберіть змагання зі списку</h3>
+                </div>-->
+    <? } ?>
+</div>

@@ -1,0 +1,25 @@
+<?
+
+$frontendOptions = array(
+    'lifetime' => 30, // время жизни кэша - 30 секунд
+    'automatic_serialization' => true // уже установлено по умолчанию
+);
+
+$dir = $_SERVER['DOCUMENT_ROOT'] . '/../var/cache';
+echo dirname($dir);
+
+$backendOptions = array('cache_dir' => $dir);
+
+$cache = Zend_Cache::factory('Output', 'File', $frontendOptions, $backendOptions);
+// передаем уникальный идентификатор методу start()
+if (!$cache->start('mypage')) {
+    // производим вывод, как обычно:
+    echo 'Hello world! ';
+    echo 'This is cached (' . time() . ') ';
+    var_dump($cache,'$cache00');
+
+    $cache->end(); // выходные данные сохранены и отправлены броузеру
+}
+echo 'This is never cached (' . time() . ').';
+$cache->remove('mypage1');
+?>

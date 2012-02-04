@@ -1,0 +1,61 @@
+#c-all #menu{
+    background: url("/img/sprite.png")  repeat-x scroll 0 -93px transparent;
+    height: 37px;
+    margin-top: -2px;
+    width: 100%;
+    padding:0;
+    margin:0;
+    display: block;
+}
+
+#c-all #menu ul.top li.level-1{
+    background: none repeat scroll 0 0 transparent;
+    border-right: 1px solid #000000;
+    display: block;
+    float: left;
+    font-size: 0.9em;
+    list-style: none;
+    width: 100px;
+}
+
+#c-all #menu li{
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding:0;
+    display: block;
+    float: left;
+}
+#c-all #menu li a{
+    height: 38px;
+    text-decoration:none;
+    line-height: 30px;
+    color: white;
+    font: 12px/38px verdana;
+    text-align: center;
+    text-decoration: none;
+    white-space: pre;
+    display: block;
+}
+#c-all #menu li li{
+    border-bottom: 1px solid #D4E0E3;
+    width: 100%;
+    text-align: left;
+    min-width: 100px;
+}
+#c-all #menu li li a{
+    text-align: left;
+    padding: 5px;
+}
+
+#c-all #menu ul ul{
+    top: 38px;
+    position: absolute;
+    display: none;
+    background: green;
+    opacity: 0.9;
+    z-index: 1500;
+}
+#c-all #menu ul li:hover ul{
+    display: block;
+} 
