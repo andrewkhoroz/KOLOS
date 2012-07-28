@@ -49,13 +49,13 @@ class Form_CompetitionForm extends ZendX_JQuery_Form {
 
         $description = $this->createElement("textarea", "description");
         $description->setLabel("Description:");
-        $description->setAttrib("cols", 120);
+        $description->setAttrib("cols", 73);
         $description->setAttrib("rows", 8);
         $description->setRequired(true);
 
         $submit = $this->createElement("submit", "Add");
 
-        $allElements = array($id,$galleryId, $name, $stratDate, $finishDate, $logo, $description);
+        $allElements = array($id,$galleryId, $name, $stratDate, $finishDate, $logo, $description,$submit);
         foreach ($allElements as $el) {
 //            $el->setDecorators($elementDecorators);
         }

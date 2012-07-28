@@ -6,7 +6,7 @@ $competition = $competitionModel->find($this->id)->current();
 ?>
 <tr competition-id="<?= $this->id; ?>">
     <td >
-        <a href='javascript:void(0);' onclick='toolbar.addEdit(<?=json_encode(array('id'=>$this->id)); ?>,"competition",competitionObject.init);return false;'>Edit</a>
+        <a href='/competition/create-update/id/<?=$this->id;?>'>Edit</a>
         <a href="javascript:void(0);"onclick="toolbar.remove(<?= $this->id; ?>,'competition'); return false;">Delete</a>
         <a href="javascript:void(0);"onclick="competitionObject.associate(<?= $this->id; ?>); return false;">Associate</a>
         <a href="<?= $this->baseUrl(); ?>/tour/manage/comp_id/<?= $this->id; ?>">Тури</a>

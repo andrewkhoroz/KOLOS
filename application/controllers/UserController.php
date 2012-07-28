@@ -18,11 +18,6 @@ class UserController extends Zend_Controller_Action {
                 'timeout' => $this->_options['auth']['timeout']
             )
         );
-
-        $ajaxContext = $this->_helper->getHelper('AjaxContext');
-        $this->_helper->ajaxContext->setAutoJsonSerialization(false)
-                ->addActionContext('login', array('html', 'json'))
-                ->initContext();
     }
 
     /**
@@ -30,7 +25,6 @@ class UserController extends Zend_Controller_Action {
      */
     public function indexAction() {
         $auth = Zend_Auth::getInstance();
-//        Zend_Debug::fdump($auth, '$auth');
         if ($auth->hasIdentity()) {
             $this->view->identity = $auth->getIdentity();
         }
@@ -114,11 +108,6 @@ class UserController extends Zend_Controller_Action {
     }
 
     public function loginAction() {
-        $this->_helper->getHelper('layout')->disableLayout();
-//        $this->_helper->viewRenderer->setNoRender(true);
-        $controller = $this->getRequest()->getControllerName();
-        $module = $this->getRequest()->getModuleName();
-        $action = $this->getRequest()->getActionName();
         $data = array();
         $data['is_logged'] = false;
         $loginForm = new Form_LoginForm($this->_formOptions);
@@ -142,16 +131,15 @@ class UserController extends Zend_Controller_Action {
                 $storage = $auth->getStorage();
                 $storage->write($authAdapter->getResultRowObject(
                                 array('id', 'username', 'first_name', 'last_name', 'role_id')));
-//                $this->_forward('index', 'index');
+                            $this->_redirect('/');
+            return;
             } else {
                 $this->view->loginMessage = "Sorry, your username or
                 password was incorrect";
             }
         }
         $this->view->form = $loginForm;
-        $content = $this->view->render('user/login.json.phtml');
-        $data['content'] = $content;
-        $this->_helper->json($data);
+        
     }
 
     public function logoutAction() {

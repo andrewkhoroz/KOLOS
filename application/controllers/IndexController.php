@@ -54,7 +54,7 @@ class IndexController extends Zend_Controller_Action {
             array('title' => 'Змагання', 'url' => $this->view->url(array('controller' => 'competition'), 'default', true),
                 'inner_links' => array(
                     array('title' => 'Додати змагання', 'url' => $this->view->url(array('controller' => 'register', 'action' => 'index')))),
-                    array()
+                array()
             ),
             array('title' => 'Команди', 'url' => $this->view->url(array('controller' => 'club'), 'default', true), 'inner_links' => array()),
             array('title' => 'Рест', 'url' => $this->view->url(array('controller' => 'index', 'action' => 'rest'), 'default', true), 'inner_links' => array()),
@@ -77,7 +77,7 @@ class IndexController extends Zend_Controller_Action {
     }
 
 //Create under drop down elements of main menu
-    private function createInnerMenuCompetition($menuItems, $controller, $action=null) {
+    private function createInnerMenuCompetition($menuItems, $controller, $action = null) {
         $innerLinks = array();
         $innerLinks[] = array('title' => $item->name, 'url' => $this->view->url(array('controller' => $controller, 'action' => $action, 'id' => $item['id'])));
         foreach ($menuItems as $item) {
@@ -86,7 +86,7 @@ class IndexController extends Zend_Controller_Action {
         return $innerLinks;
     }
 
-    private function createInnerMenu($menuItems, $controller, $action=null) {
+    private function createInnerMenu($menuItems, $controller, $action = null) {
         $innerLinks = array();
         $innerLinks[] = array('title' => $item->name, 'url' => $this->view->url(array('controller' => $controller, 'action' => $action, 'id' => $item['id'])));
         foreach ($menuItems as $item) {
@@ -115,4 +115,4 @@ class IndexController extends Zend_Controller_Action {
         echo $this->view->navigation()->sitemap();
     }
 
-}
+    }

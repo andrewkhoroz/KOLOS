@@ -41,9 +41,9 @@ class Form_LoginForm extends Zend_Form {
                 ->addValidator('StringLength', false, array(6))
                 ->setRequired(true);
         $this->addElement($password);
-//        $this->addElement('submit', 'submit', array(
-//            'label' => 'Увійти'
-//        ));
+        $this->addElement('submit', 'submit', array(
+            'label' => 'Увійти'
+        ));
     }
 
 }

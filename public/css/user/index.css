@@ -1,3 +1,28 @@
 .identity-wrapper{
     padding: 0 10px;
 }
+#content form.f .input {
+    margin-top: 1.5em;
+    padding-left: 25%;
+    position: relative;
+}
+#content form.f .input .label {
+    color: #3F3F3F;
+    display: block;
+    float: left;
+    font-size: 0.875em;
+    font-weight: bold;
+    margin-left: -33%;
+    margin-top: 1px;
+    padding: 0.25em 0;
+    text-align: right;
+    width: 30%;
+}
+#content form.f .input input.string, #content form.f .input input.password, #content form.f .input textarea, #content form.f .input input.numeric, #content form.f .input .wysiwyg {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #B9BCBE;
+    -moz-border-radius: 2px 2px 2px 2px;-khtml-border-radius: 2px 2px 2px 2px;-webkit-border-radius: 2px 2px 2px 2px;border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 0 4px #E2EAEE, 1px 1px 3px #EEEEEE inset;-webkit-box-shadow: 0 0 0 4px #E2EAEE, 1px 1px 3px #EEEEEE inset;-moz-box-shadow: 0 0 0 4px #E2EAEE, 1px 1px 3px #EEEEEE inset;
+    padding: 0.5em 0.25em;
+    width: 60%;
+}

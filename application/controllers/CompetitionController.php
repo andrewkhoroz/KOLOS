@@ -12,18 +12,7 @@ class CompetitionController extends App_AbstractController {
     protected $toursModel;
 
     public function init() {
-        // AJAX
         $this->_modelName = 'competition';
-        $ajaxContext = $this->_helper->getHelper('AjaxContext');
-        $this->_helper->ajaxContext->setAutoJsonSerialization(false)
-                ->addActionContext('view', 'html')
-                ->addActionContext('index', 'html')
-                ->addActionContext('manage', array('html'))
-                ->addActionContext('createUpdate', array('json'))
-                ->addActionContext('toursViewer', array('html'))
-                ->addActionContext('delete', 'html')
-                ->addActionContext('associate', 'json')
-                ->initContext();
     }
 
     public function preDispatch() {
@@ -107,7 +96,7 @@ class CompetitionController extends App_AbstractController {
      * 
      */
     public function createUpdateAction() {
-        $this->_helper->viewRenderer->setNoRender(true);
+        parent::createUpdateAction();
         $competitionForm = new Form_CompetitionForm();
         $competitionForm->setMethod('POST');
         $data = array();
@@ -150,9 +139,6 @@ class CompetitionController extends App_AbstractController {
         }
 //        Zend_Debug::fdump($sessionCustom->galleryObject, '$sessionCustom->galleryObject');
         $this->view->form = $competitionForm;
-        $content = $this->view->render('competition/create-update.json.phtml');
-        $data['content'] = $content;
-        $this->_helper->json($data);
     }
 
     public function confirmAction() {

@@ -29,6 +29,17 @@ class App_AbstractController extends Zend_Controller_Action {
         $this->view->{$this->_modelName . 'sCount'} = $adapter->count();
     }
 
+    public function createUpdateAction() {
+        $this->view->headScript()->appendFile($this->view->baseUrl() . '/js/jQuery/nicEdit.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl() . '/js/modules/upload/jquery.fileupload.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl() . '/js/modules/upload/jquery.fileupload-ui.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl() . '/js/modules/upload/jquery.iframe-transport.js');
+        $this->view->headScript()->appendFile($this->view->baseUrl() . '/js/modules/upload/jquery.tmpl.min.js');
+
+        $this->view->headLink()->appendStylesheet($this->view->baseUrl() . '/css/modules/upload/jquery.fileupload-ui.css');
+        $this->view->headLink()->appendStylesheet($this->view->baseUrl() . '/css/modules/upload/style.css');
+    }
+
     public function manageAction() {
         $this->view->headScript()->appendFile($this->view->baseUrl() . '/js/jQuery/nicEdit.js');
         $this->view->headScript()->appendFile($this->view->baseUrl() . '/js/modules/upload/jquery.fileupload.js');
@@ -61,7 +72,7 @@ class App_AbstractController extends Zend_Controller_Action {
 
     public function deleteAction() {
         $this->_helper->viewRenderer->setNoRender();
-        $id = $this->_request->getParam($this->_modelName ."_id");
+        $id = $this->_request->getParam($this->_modelName . "_id");
         try {
             $this->{$this->_modelName . 'sModel'}->remove($id);
         } catch (Exception $ex) {

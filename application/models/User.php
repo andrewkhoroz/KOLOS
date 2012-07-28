@@ -7,7 +7,6 @@ class Model_User extends Zend_Db_Table_Row_Abstract implements Zend_Acl_Role_Int
 
 
     public function getRoleId() {
-        Zend_Debug::fdump($this->role_id, '$this->role_id;');
         return $this->role_id;
     }
 

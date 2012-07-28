@@ -76,6 +76,7 @@ class Form_UserForm extends Zend_Form {
 
         $this->addAttribs(array("id" => "user-form"));
         $submit = $this->addElement('submit', 'submit', array('label' => 'Submit'));
+//        $this->addElement($submit);
     }
 
 }

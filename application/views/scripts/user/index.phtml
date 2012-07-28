@@ -3,7 +3,7 @@ $session = Model_Session::getSession();
 ?>
 <div class="identity-wrapper">
     <?php if ($this->identity == null) { ?>
-        <a class="login strong" href='javascript:void(0)'>Sign In</a> | 
+        <a class="login strong" href='/user/login/'>Sign In</a> | 
         <a class="register strong" href='/registration/'>Register</a>
     <?php } else { ?>
         <span>Hi <?php echo $this->identity->first_name; ?></span>

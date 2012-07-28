@@ -11,7 +11,7 @@ if (!empty($gallery)) {
     if (count($photos) > 0) {
         $file = $photos[0];
         ?>
-        <a class="left" rel="fancy_images" href="<?= $file->url; ?>" title=""><img class="image-border" width="100px" height="100px" alt="" src="<?= $file->url; ?>" /></a>
+        <a class="left" rel="fancy_images" href="<?= $file->url; ?>" title=""><img class="" width="100px" height="100px" alt="" src="<?= $file->url; ?>" /></a>
         <? } ?>
     <a class="pink bigger strong" href="<?= $this->url(array('controller' => 'competition', 'action' => 'view', 'id' => $this->id), 'default', true) ?>" ><?= $this->name . ' (' . date("Y", strtotime($this->start_date)) . ')'; ?></a>
 

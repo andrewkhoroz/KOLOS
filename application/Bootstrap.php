@@ -56,6 +56,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
                 ->enable()
                 ->setLocalPath('/js/jQuery/jquery-1.6.1.min.js')
                 ->addStylesheet('/css/jQuery/jquery.ui.custom.css')
+                ->addStylesheet('/css/jQuery/jquery.ui.overload.css')
                 ->setUiLocalPath('/js/jQuery/jquery.ui.min.js')
                 ->uiEnable();
     }

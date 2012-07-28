@@ -7,7 +7,7 @@
 <div class="competitions-action-manage">
     <? if ($this->competitionsCount > 0) { ?>
         <div class="table-controls">
-            <a class="competition-add right" href='javascript:void(0);' onclick='toolbar.addEdit(<?= json_encode(array('id' => 0)); ?>,"competition",competitionObject.init);return false;'>Add new</a>
+            <a class="competition-add right" href='/competition/create-update/id/'>Add new</a>
             <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml'); ?>
         </div>
         <div class="table-wrapper">
